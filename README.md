@@ -1,5 +1,7 @@
 # Run Time Module Power Monitoring for FPGA Applications
 
+This is a university project at TU Vienna in the SoC Lab.
+
 ## Abstract
 The usage of field programmable gate arrays (FPGAs) in low power applications increases, so
 the reduction of power consumption is of great importance. Although power analysis tools from
