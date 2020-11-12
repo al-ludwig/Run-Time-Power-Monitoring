@@ -17,7 +17,7 @@ The following picture gives an idea of the structure. The "module-under-monitori
 is enveloped by the power monitoring unit, which includes the activity counters and power con-
 sumption calculation.
 
-![Test Image 1](./doc/overview.png)
+![System overview](https://github.com/al-ludwig/Run-Time-Power-Monitoring/blob/main/doc/overview.PNG)
 
 ## Team organization
 
