@@ -1,9 +1,9 @@
 # Run Time Module Power Monitoring for FPGA Applications
 
 ## Abstract
-The usage of eld programmable gate arrays (FPGAs) in low power applications increases, so
+The usage of field programmable gate arrays (FPGAs) in low power applications increases, so
 the reduction of power consumption is of great importance. Although power analysis tools from
-dierent vendors exist, it can be important to be aware of the run time dynamic power consump-
+different vendors exist, it can be important to be aware of the run time dynamic power consump-
 tion of individual applications.  
 The goal of this project is to create a design which can measure the power consumption of basic
 modules or IP cores in run time by counting the toggling of specific signals. Counting the toggles
