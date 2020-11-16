@@ -8,7 +8,7 @@ run:
 	@echo ""
 	cd ../../src && rm -f *.cf
 	cd ../../src && ghdl -a activitycounter.vhd
-	ghdl -a --workdir=../../src tb_ac.vhd
-	ghdl -e --workdir=../../src tb_ac
-	ghdl -r --workdir=../../src tb_ac --stop-time=10us --vcd=tb_ac.vcd
+	cd .. && ghdl -a --workdir=../src tb_ac.vhd
+	cd .. && ghdl -e --workdir=../src tb_ac
+	cd .. && ghdl -r --workdir=../src tb_ac --stop-time=10us --vcd=./ghdl/tb_ac.vcd
 	gtkwave tb_ac.vcd tb_ac_wave.gtkw
