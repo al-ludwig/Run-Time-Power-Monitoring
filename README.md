@@ -30,6 +30,12 @@ Contact: e1525909@student.tuwien.ac.at
 * Lead Test and Integration: Luke Maher  
 Contact: e1225441@student.tuwien.ac.at
 
+## Prerequisites
+
+* [ghdl](http://ghdl.free.fr/): for compiling and executing VHDL code
+* [GTKWave](http://gtkwave.sourceforge.net/): for viewing the simulation results
+* [Vivado](https://www.xilinx.com/products/design-tools/vivado.html)
+
 ## References
 <a id="1">[1]</a>
 Z. Lin, W. Zhang, and S. Sharad. Decision tree based hardware power monitoring for run
