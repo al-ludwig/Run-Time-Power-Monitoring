@@ -1,0 +1,39 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Mon Nov 16 12:50:38 2020
+[*]
+[dumpfile] "C:\Users\Alexander\Documents\Master_Embedded\SoC_Lab\ACounter\tb_ac.vcd"
+[dumpfile_mtime] "Mon Nov 16 12:48:52 2020"
+[dumpfile_size] 54589
+[savefile] "C:\Users\Alexander\Documents\Master_Embedded\SoC_Lab\ACounter\tb_ac_wave.gtkw"
+[timestart] 0
+[size] 1920 1017
+[pos] -9 -9
+*-24.000000 90000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 229
+[signals_width] 193
+[sst_expanded] 1
+[sst_vpaned_height] 378
+@28
+uut.clk
+uut.reset_n
+@c00028
+uut.inputs[3:0]
+@28
+(0)uut.inputs[3:0]
+(1)uut.inputs[3:0]
+(2)uut.inputs[3:0]
+(3)uut.inputs[3:0]
+@1401208
+-group_end
+@420
+uut.result[7:0]
+@200
+-
+-internal signals
+@420
+uut.s_cnt[7:0]
+@29
+uut.s_inputs[3:0]
+[pattern_trace] 1
+[pattern_trace] 0
