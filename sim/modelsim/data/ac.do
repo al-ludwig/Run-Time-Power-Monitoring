@@ -3,7 +3,7 @@ quietly WaveActivateNextPane {} 0
 add wave -noupdate -divider TOP
 add wave -noupdate /tb_ac/s_clk
 add wave -noupdate /tb_ac/s_reset_n
-add wave -noupdate -expand /tb_ac/s_inputs
+add wave -noupdate /tb_ac/s_inp
 add wave -noupdate -radix unsigned /tb_ac/s_result
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {0 ps} 0}

@@ -23,32 +23,30 @@ architecture behaviour of tb_ac is
 
   component activitycounter
     generic(
-      num_input: NATURAL := 4;
       output_width:   NATURAL := 8
     );
     port(
       clk:    IN std_logic;
       reset_n:  IN std_logic;           --low active
-      inputs: IN std_logic_vector (num_input-1 downto 0);
-      result: OUT signed (output_width-1 downto 0)
+      inp: IN std_logic;
+      result: OUT unsigned (output_width-1 downto 0)
     );
   end component;
 
   signal s_clk:   std_logic := '0';
   signal s_reset_n: std_logic := '1';
-  signal s_inputs:  std_logic_vector(4-1 downto 0);
-  signal s_result:  signed(8-1 downto 0);
+  signal s_inp:  std_logic;
+  signal s_result:  unsigned(8-1 downto 0);
 
   begin
 
     uut:  activitycounter 
       generic map(
-        num_input => 4,
         output_width => 8)
       port map(
         clk => s_clk,
         reset_n => s_reset_n,
-        inputs => s_inputs,
+        inp => s_inp,
         result => s_result);
 
     s_clk <= not s_clk after 10 ns; -- 50MHz
@@ -66,17 +64,17 @@ architecture behaviour of tb_ac is
     stim: process
     begin
       --wait for 10 ns;
-      s_inputs <= "0001";
+      s_inp <= '0';
       wait for 20 ns;
-      s_inputs <= "0101";
+      s_inp <= '1';
       wait for 20 ns;
-      s_inputs <= "1111";
+      s_inp <= '0';
       wait for 20 ns;
-      s_inputs <= "0000";
+      s_inp <= '0';
       wait for 20 ns;
-      s_inputs <= "1011";
+      s_inp <= '1';
       wait for 20 ns;
-      s_inputs <= "1010";
+      s_inp <= '0';
       wait for 20 ns;
     end process;
 

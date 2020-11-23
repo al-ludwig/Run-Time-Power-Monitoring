@@ -1,7 +1,0 @@
-v 3
-file "C:\Users\Alexander\Documents\Master_Embedded\SoC_Lab\Run-Time-Power-Monitoring\sim\" "tb_ac.vhd" "20201116124842.000" "20201116185645.254":
-  entity tb_ac at 10( 392) + 0 on 13;
-  architecture behaviour of tb_ac at 22( 843) + 0 on 14;
-file "../src\" "activitycounter.vhd" "20201116123716.000" "20201116185645.174":
-  entity activitycounter at 5( 196) + 0 on 11;
-  architecture activitycounter_beh of activitycounter at 27( 768) + 0 on 12;
