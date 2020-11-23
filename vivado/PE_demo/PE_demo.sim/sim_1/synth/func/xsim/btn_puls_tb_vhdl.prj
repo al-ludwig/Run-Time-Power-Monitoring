@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"btn_puls_tb_func_synth.vhd" \
+"../../../../../PE_demo.srcs/sim_1/imports/button_puls/btn_puls_tb.vhd" \
+
+# Do not sort compile order
+nosort

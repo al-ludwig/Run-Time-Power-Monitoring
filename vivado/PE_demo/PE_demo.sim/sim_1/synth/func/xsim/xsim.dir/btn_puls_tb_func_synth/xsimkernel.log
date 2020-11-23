@@ -1,0 +1,7 @@
+Running: xsim.dir/btn_puls_tb_func_synth/xsimk.exe -simmode gui -wdb btn_puls_tb_func_synth.wdb -simrunnum 0 -socket 60619
+Design successfully loaded
+Design Loading Memory Usage: 5796 KB (Peak: 5796 KB)
+Design Loading CPU Usage: 77 ms
+Simulation completed
+Simulation Memory Usage: 6828 KB (Peak: 6828 KB)
+Simulation CPU Usage: 93 ms
