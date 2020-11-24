@@ -5,19 +5,17 @@ This is a university project at TU Vienna in the SoC Lab.
 ## Abstract
 The usage of field programmable gate arrays (FPGAs) in low power applications increases, so
 the reduction of power consumption is of great importance. Although power analysis tools from
-different vendors exist, it can be important to be aware of the run time dynamic power consump-
-tion of individual applications.  
-The goal of this project is to create a design which can measure the power consumption of basic
+different vendors exist, it can be important to be aware of the run time dynamic power consumption of individual 
+applications.The goal of this project is to create a design which can measure the power consumption of basic
 modules or IP cores in run time by counting the toggling of specific signals. Counting the toggles
 of each signal from a module can strongly increase the required board area for the measurement
-unit. Therefore it is important to identify the most indicative signals. This can be done by sort-
-ing the signal activities based on previous generated switching activity files (.saif). The signals
-with the most activity are selected and a activity counter identifies the positive edges of these
-signals. Finally, a relationship between switching activity and power dissipation gives the power
-consumption. This method is described in more detail in the work of Lin et al. [[1]](#1).  
+unit. Therefore it is important to identify the most indicative signals. This can be done by sorting the signal 
+activities based on previous generated switching activity files (.saif). The signals with the most activity are 
+selected and a activity counter identifies the edges of these signals. Finally, a relationship between 
+switching activity and power dissipation gives the power consumption. This method is described in more detail in 
+the work of Lin et al. [[1]](#1).  
 The following picture gives an idea of the structure. The "module-under-monitoring"
-is enveloped by the power monitoring unit, which includes the activity counters and power con-
-sumption calculation.
+is enveloped by the power monitoring unit, which includes the activity counters and power consumption calculation.
 
 ![System overview](https://github.com/al-ludwig/Run-Time-Power-Monitoring/blob/main/doc/overview.PNG)
 
@@ -32,9 +30,10 @@ Contact: e1225441@student.tuwien.ac.at
 
 ## Prerequisites
 
-* [ghdl](http://ghdl.free.fr/): for compiling and executing VHDL code
+* [ghdl](http://ghdl.free.fr/): for compiling and simulating VHDL code
 * [GTKWave](http://gtkwave.sourceforge.net/): for viewing the simulation results
-* [Vivado](https://www.xilinx.com/products/design-tools/vivado.html)
+* [Vivado](https://www.xilinx.com/products/design-tools/vivado.html): for power report generation
+* [ModelSim](https://www.mentor.com/company/higher_ed/modelsim-student-edition): for compiling and simulating VHDL code
 
 ## References
 <a id="1">[1]</a>
