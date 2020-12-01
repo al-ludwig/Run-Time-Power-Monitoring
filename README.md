@@ -28,6 +28,20 @@ Contact: e1525909@student.tuwien.ac.at
 * Lead Test and Integration: Luke Maher  
 Contact: e1225441@student.tuwien.ac.at
 
+## Timetable
+
+| Task | Due Date | Status |
+| :---        |    :----:   | :----: |
+| Activitycounter RTL Design & Simulation | 17.11.2020 | Done |
+| (Power) calculation RTL Design & Simulation | 24.11.2020 | Done |
+| **Create a signal selection algorithm** | **15.12.2020** | **Pending** |
+| **Selection of the module to be analyzed** | **15.12.2020** | **Pending** |
+| **Top module RTL Design & Simulation** | **15.12.2020** | **Pending** |
+| **Zedboard implementation (in vivado)** | **12.01.2021** | **Pending** |
+| **(Final) Testing and modifications** | **23.02.2021** | **Pending** |
+
+
+
 ## Prerequisites
 
 * [ghdl](http://ghdl.free.fr/): for compiling and simulating VHDL code
