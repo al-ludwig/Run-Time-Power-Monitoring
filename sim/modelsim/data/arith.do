@@ -1,19 +1,19 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate -divider {small number}
-add wave -noupdate /tb_fxd_arith/coeff_fxd_c
-add wave -noupdate -color Coral /tb_fxd_arith/small_real
-add wave -noupdate -color Magenta -height 20 -radix hexadecimal /tb_fxd_arith/small_fxd
+add wave -noupdate /tb_fxd_arith_pkg/coeff_fxd_c
+add wave -noupdate -color Coral /tb_fxd_arith_pkg/small_real
+add wave -noupdate -color Magenta -height 20 -radix hexadecimal /tb_fxd_arith_pkg/small_fxd
 add wave -noupdate -divider {normal number}
-add wave -noupdate /tb_fxd_arith/coeff_fxd_c
-add wave -noupdate -color Coral /tb_fxd_arith/norm_real
-add wave -noupdate -color Magenta -radix hexadecimal /tb_fxd_arith/norm_fxd
+add wave -noupdate /tb_fxd_arith_pkg/coeff_fxd_c
+add wave -noupdate -color Coral /tb_fxd_arith_pkg/norm_real
+add wave -noupdate -color Magenta -radix hexadecimal /tb_fxd_arith_pkg/norm_fxd
 add wave -noupdate -divider {Mult result}
-add wave -noupdate -color Green -radix symbolic -childformat {{/tb_fxd_arith/res_fxd_c.ip -radix symbolic} {/tb_fxd_arith/res_fxd_c.fp -radix symbolic} {/tb_fxd_arith/res_fxd_c.m -radix symbolic}} -subitemconfig {/tb_fxd_arith/res_fxd_c.ip {-color Green -height 15 -radix symbolic} /tb_fxd_arith/res_fxd_c.fp {-color Green -height 15 -radix symbolic} /tb_fxd_arith/res_fxd_c.m {-color Green -height 15 -radix symbolic}} /tb_fxd_arith/res_fxd_c
-add wave -noupdate -color Magenta -height 20 -radix hexadecimal /tb_fxd_arith/res_fxd
-add wave -noupdate -color Coral /tb_fxd_arith/res_real
-add wave -noupdate -color Turquoise /tb_fxd_arith/res_back
-add wave -noupdate -color Turquoise /tb_fxd_arith/conv_error
+add wave -noupdate -color Green -radix symbolic -childformat {{/tb_fxd_arith_pkg/res_fxd_c.ip -radix symbolic} {/tb_fxd_arith_pkg/res_fxd_c.fp -radix symbolic} {/tb_fxd_arith_pkg/res_fxd_c.m -radix symbolic}} -subitemconfig {/tb_fxd_arith_pkg/res_fxd_c.ip {-color Green -height 15 -radix symbolic} /tb_fxd_arith_pkg/res_fxd_c.fp {-color Green -height 15 -radix symbolic} /tb_fxd_arith_pkg/res_fxd_c.m {-color Green -height 15 -radix symbolic}} /tb_fxd_arith_pkg/res_fxd_c
+add wave -noupdate -color Magenta -height 20 -radix hexadecimal /tb_fxd_arith_pkg/res_fxd
+add wave -noupdate -color Coral /tb_fxd_arith_pkg/res_real
+add wave -noupdate -color Turquoise /tb_fxd_arith_pkg/res_back
+add wave -noupdate -color Turquoise /tb_fxd_arith_pkg/conv_error
 add wave -noupdate -divider <NULL>
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {9988041 ps} 0}
