@@ -1,3 +1,7 @@
+--==============================================================================
+-- project: Run-Time-Power-Monitoring
+--==============================================================================
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -23,6 +27,17 @@ package fxd_arith_pkg is
 
 	-- multiply two fxd_type unsigned
 	function mul_fxd (
+		constant a     : unsigned;
+		constant a_fxd : fxd_type;
+		constant b     : unsigned;
+		constant b_fxd : fxd_type;
+		constant c_fxd : fxd_type
+	) return unsigned;
+
+	--==========================================================================
+
+	-- add two fxd_type unsigned
+	function add_fxd (
 		constant a     : unsigned;
 		constant a_fxd : fxd_type;
 		constant b     : unsigned;
@@ -116,6 +131,67 @@ package body fxd_arith_pkg is
 
 		return c;
 	end mul_fxd;
+
+	--==========================================================================
+	-- add 2 fxd_type unsigned arguments
+	--==========================================================================
+
+	function add_fxd (
+		constant a     : unsigned;
+		constant a_fxd : fxd_type;
+		constant b     : unsigned;
+		constant b_fxd : fxd_type;
+		constant c_fxd : fxd_type
+	) return unsigned is
+
+		constant c_max_m : natural := maximum(a_fxd.ip, b_fxd.ip) + maximum(a_fxd.fp, b_fxd.fp) + 1;
+
+		variable mres_c : fxd_type;
+		variable mres   : unsigned (c_max_m - 1 downto 0);
+		variable c      : unsigned (c_fxd.m - 1 downto 0);
+
+	begin
+
+		mres_c := (maximum(a_fxd.ip, b_fxd.ip) + 1, maximum(a_fxd.fp, b_fxd.fp), c_max_m);
+		mres   := (others => '0');
+		c      := (others => '0');
+
+		-- addition
+		if (a_fxd.fp >= b_fxd.fp) then
+			mres := resize(a, c_max_m) + shift_left(resize(b, c_max_m), (a_fxd.fp - b_fxd.fp));
+		elsif (a_fxd.fp < b_fxd.fp) then
+			mres := resize(b, c_max_m) + shift_left(resize(a, c_max_m), (b_fxd.fp - a_fxd.fp));
+		end if;
+
+		-- set output c
+		-- integer part
+		if (c_fxd.ip >= mres_c.ip) then -- c.ip > m.ip
+			c(c_fxd.fp + mres_c.ip - 1 downto c_fxd.fp) :=
+			mres(mres_c.m - 1 downto mres_c.fp);
+		elsif (c_fxd.ip < mres_c.ip) then -- c.ip < m.ip
+			-- overflow warning
+			if (mres(mres_c.m - 1 downto mres_c.m - (mres_c.ip - c_fxd.ip)) /= 0) then
+				report "add_fxd: Integer part of result c_fxd type too short." severity warning;
+			end if;
+			c(c_fxd.m - 1 downto c_fxd.fp) :=
+			mres(mres_c.fp + c_fxd.ip - 1 downto mres_c.fp);
+		end if;
+
+		-- fraction part
+		if (c_fxd.fp >= mres_c.fp) then -- no overflow
+			c(c_fxd.fp - 1 downto c_fxd.fp - mres_c.fp) :=
+			mres(mres_c.fp - 1 downto 0);
+		elsif (c_fxd.fp < mres_c.fp) then
+			-- overflow warning
+			if (mres(mres_c.fp - 1 - c_fxd.fp downto 0) /= 0) then
+				report "add_fxd: Fraction part of result c_fxd type too short." severity warning;
+			end if;
+			c(c_fxd.fp - 1 downto 0) := 
+			mres(mres_c.fp - 1 downto mres_c.fp - c_fxd.fp);
+		end if;
+
+		return c;
+	end add_fxd;
 
 	--==========================================================================
 	-- convert real number to unsigned fxd_Type

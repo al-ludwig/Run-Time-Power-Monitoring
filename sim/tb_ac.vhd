@@ -1,3 +1,7 @@
+--==============================================================================
+-- project: Run-Time-Power-Monitoring
+--==============================================================================
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -15,15 +19,11 @@ architecture sim of tb_ac is
 	signal s_clk     : std_logic := '0';
 	signal s_reset_n : std_logic := '1';
 	signal s_inp     : std_logic;
-	signal s_result  : unsigned(8 - 1 downto 0);
+	signal s_result  : activity_type;
 
 begin
 
 	uut : ac
-	generic map(
-		output_width   => activity_data_width_c,
-		reset_interval => reset_interval_c,
-		clk_freq       => clk_freq_c)
 	port map(
 		clk     => s_clk,
 		reset_n => s_reset_n,

@@ -1,3 +1,7 @@
+--==============================================================================
+-- project: Run-Time-Power-Monitoring
+--==============================================================================
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -7,56 +11,62 @@ use work.fxd_arith_pkg.all;
 --&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 package rtpm_pkg is
-	----------------------------------------------------------------------------
-	--constant definitions
-	constant max_error             : real     := 1.0e-12;
-	constant coeff_fxd_c           : fxd_type := (32, 96, 128);
-	constant res_fxd_c             : fxd_type := (32, 96, 128);
-	constant activity_data_width_c : natural  := 8;
+
+	--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	--USER CHANGABLE CONSTANTS
+
+	constant activity_count        : natural := 5;
+	constant activity_data_width_c : natural := 20;
+
+	constant coeff_fxd_c : fxd_type := (32, 96, 128);
+	constant res_fxd_c   : fxd_type := (4, 28, 32);
 
 	constant reset_interval_c : time    := 500 ns;
 	constant clk_freq_c       : natural := 50e6;
 
-	----------------------------------------------------------------------------
-	--subtype definitions
+	--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 	subtype coeff_fxd_type is unsigned (coeff_fxd_c.m - 1 downto 0);
 	subtype res_fxd_type is unsigned (res_fxd_c.m - 1 downto 0);
-	----------------------------------------------------------------------------
-	-- type definitions
 
-	----------------------------------------------------------------------------
-	--function declerations
+	type multiplier_array_type is array (activity_count - 1 downto 0) of real;
+	type multiplier_fxd_array_type is array (activity_count - 1 downto 0) of coeff_fxd_type;
+	subtype activity_type is unsigned (activity_data_width_c - 1 downto 0);
+	type activity_array_type is array (activity_count - 1 downto 0) of activity_type;
 
-	--##########################################################################
+	--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	--USER CHANGABLE CONSTANTS
+	
+	constant c_multiplier : multiplier_array_type := (
+		0.000343587, 
+		0.0002439945,
+		0.000645374,
+		0.023676,
+		0.12432524569
+		);
 
-	--##########################################################################
-	--component declerations for the top entities
+	--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+	--==========================================================================
 
 	component ac
-		generic (
-			output_width   : natural;
-			reset_interval : time;
-			clk_freq       : natural
-		);
 		port (
 			clk     : in std_logic;
 			reset_n : in std_logic;
 			inp     : in std_logic;
-			result  : out unsigned (output_width - 1 downto 0)
+			result  : out activity_type
 		);
 	end component;
 
 	component calc
 		generic (
-			multiplier  : real;
-			input_width : natural
+			multiplier : multiplier_array_type
 		);
 		port (
 			clk      : in std_logic;
 			en       : in std_logic;
 			reset_n  : in std_logic;
-			activity : in unsigned (input_width - 1 downto 0);
+			activity : in activity_array_type;
 			p_dyn    : out res_fxd_type
 		);
 	end component;

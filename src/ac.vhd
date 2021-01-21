@@ -1,21 +1,21 @@
+--==============================================================================
+-- project: Run-Time-Power-Monitoring
+--==============================================================================
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use IEEE.math_real.all;
+use work.rtpm_pkg.all;
 
 --&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 entity ac is
-	generic (
-		output_width   : natural;
-		reset_interval : time;
-		clk_freq       : natural
-	);
 	port (
 		clk     : in std_logic;
 		reset_n : in std_logic;
 		inp     : in std_logic;
-		result  : out unsigned (output_width - 1 downto 0)
+		result  : out activity_type
 	);
 end ac;
 
@@ -24,11 +24,11 @@ end ac;
 architecture rtl of ac is
 
 	constant result_max       : unsigned 
-			:= to_unsigned(2 ** (output_width - 1) - 1, output_width);
+			:= to_unsigned(2 ** (activity_data_width_c - 1) - 1, activity_data_width_c);
 	constant clk_period       : time     
-			:= 1 sec / clk_freq;
+			:= 1 sec / clk_freq_C;
 	constant max_reset_cnt    : natural  
-			:= integer(reset_interval / clk_period);
+			:= integer(reset_interval_c / clk_period);
 	constant length_reset_cnt : natural  
 			:= natural(ceil(log2(real(max_reset_cnt))));
 
@@ -38,7 +38,7 @@ architecture rtl of ac is
 begin
 
 	p_count : process (clk)
-		variable v_cnt : unsigned(output_width - 1 downto 0);
+		variable v_cnt : unsigned(activity_data_width_c - 1 downto 0);
 	begin
 
 		if (clk'event and clk = '1') then

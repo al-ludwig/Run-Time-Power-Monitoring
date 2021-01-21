@@ -1,6 +1,11 @@
+--==============================================================================
+-- project: Run-Time-Power-Monitoring
+--==============================================================================
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+use IEEE.math_real.all;
 use work.fxd_arith_pkg.all;
 use work.rtpm_pkg.all;
 
@@ -13,34 +18,42 @@ end tb_calc;
 
 architecture sim of tb_calc is
 
-	constant input_data_width : natural := 8;
+	--==========================================================================
+	-- USER CHANGABLE
+	constant max_error    : real                  := 1.0e-6;
+	constant steps        : natural               := 1e4;
+	--==========================================================================
 
 	signal s_clk        : std_logic := '0';
 	signal s_reset_n    : std_logic := '1';
 	signal s_en         : std_logic;
-	signal s_activity   : unsigned (input_data_width - 1 downto 0);
+	signal s_activity   : activity_array_type;
 	signal s_p_dyn      : res_fxd_type;
 	signal s_p_dyn_real : real;
 
+	signal s_p_dyn_err : real := 0.0;
+	signal s_p_dyn_ref: real := 0.0;
+
 begin
 
-	s_p_dyn_real <= to_real(s_p_dyn, res_fxd_c);
+	ut : calc
+	generic map(
+		multiplier => c_multiplier
+	)
+	port map(
+		clk      => s_clk,
+		en       => s_en,
+		reset_n  => s_reset_n,
+		activity => s_activity,
+		p_dyn    => s_p_dyn);
 
-	uut : calc
-		generic map(
-			multiplier  => 8.0e-12,
-			input_width => activity_data_width_c)
-		port map(
-			clk      => s_clk,
-			en       => s_en,
-			reset_n  => s_reset_n,
-			activity => s_activity,
-			p_dyn    => s_p_dyn);
+	-- concurrent conversion of the fxd output
+	s_p_dyn_real <= to_real(s_p_dyn, res_fxd_c);
 
 	-- clk stimulus 
 	s_clk <= not s_clk after 10 ns; -- 50MHz
 
-	-- periodic reset after 1us
+	-- reset
 	p_reset : process
 	begin
 		s_reset_n <= '0';
@@ -48,24 +61,43 @@ begin
 		wait for 20 ns;
 		s_reset_n <= '1';
 		s_en      <= '1';
-		wait for 980 ns;
+		wait;
 	end process;
 
-	-- inputs
-	p_stim : process
+	-- compare fxd arithmetic with real arithmetic and calc error
+	p_compare : process (s_p_dyn_real, s_en, s_reset_n, s_activity)
+		variable v_p_dyn_ref : real := 0.0;
 	begin
-		s_activity <= to_unsigned(28, input_data_width);
-		wait for 20 ns;
-		s_activity <= to_unsigned(56, input_data_width);
-		wait for 20 ns;
-		s_activity <= to_unsigned(80, input_data_width);
-		wait for 20 ns;
-		s_activity <= to_unsigned(13, input_data_width);
-		wait for 20 ns;
-		s_activity <= to_unsigned(34, input_data_width);
-		wait for 20 ns;
-		s_activity <= to_unsigned(89, input_data_width);
-		wait for 20 ns;
+		if (s_en and s_reset_n) then
+			if (s_p_dyn_real'event) then
+				v_p_dyn_ref := 0.0;
+				for j in 0 to activity_count-1 loop
+					v_p_dyn_ref := v_p_dyn_ref + (real(to_integer(s_activity(j))) * c_multiplier(j));
+				end loop;
+				s_p_dyn_err <= s_p_dyn_real - v_p_dyn_ref;
+				s_p_dyn_ref <= v_p_dyn_ref;
+				assert (abs(s_p_dyn_real - v_p_dyn_ref) < max_error) 
+				report "Simulation: max conv_error violation" severity failure;
+			end if;
+		end if;
+	end process;
+
+	-- generate random activity inputs
+	p_stim : process
+		variable seed1, seed2        : integer := 999;
+		variable rand, rand2         : real;
+		variable rand_nat, rand2_nat : natural;
+	begin
+		for i in 0 to steps loop
+			-- generate random values
+			for j in 0 to activity_count - 1 loop
+				uniform(seed1, seed2, rand);
+				rand_nat  := natural(rand * 1000.0);
+				s_activity(j) <= to_unsigned(rand_nat, activity_data_width_c);
+			end loop;
+			wait for 20 ns;
+		end loop;
+		report "Simulation: Finished successfully" severity failure;
 	end process;
 
 end sim;

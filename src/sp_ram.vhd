@@ -1,3 +1,7 @@
+--==============================================================================
+-- project: Run-Time-Power-Monitoring
+--==============================================================================
+
 -- fpga4student.com: FPGA projects, Verilog projects, VHDL projects 
 -- VHDL project: VHDL code for a single-port RAM 
 library IEEE;

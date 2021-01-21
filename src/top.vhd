@@ -1,3 +1,7 @@
+--==============================================================================
+-- project: Run-Time-Power-Monitoring
+--==============================================================================
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -33,7 +37,7 @@ architecture struct of top is
     signal s_RAM_WR       : std_logic;
     signal s_RAM_DATA_OUT : std_logic_vector(15 downto 0);
 
-    signal s_activity : unsigned(activity_data_width_c - 1 downto 0);
+    signal s_activity : activity_array_type;
     signal s_p_dyn    : res_fxd_type;
 
 begin
@@ -58,8 +62,8 @@ begin
     );
     ----------------------------------------------------------------------------
     dut_calc : calc generic map(
-        multiplier => 1.21,
-        input_width => activity_data_width_c)
+        multiplier => c_multiplier
+    )
     port map(
         clk      => s_clk,
         en       => s_en,
@@ -68,15 +72,13 @@ begin
         p_dyn    => s_p_dyn
     );
     ----------------------------------------------------------------------------
-    dut_ac : ac generic map(
-        output_width   => activity_data_width_c,
-        reset_interval => reset_interval_c,
-        clk_freq       => clk_freq_c)
-    port map(
-        clk     => s_clk,
-        reset_n => s_reset_n,
-        inp     => s_RAM_WR,
-        result  => s_activity
-    );
+    gen_ac: for i in 0 to activity_count - 1 generate
+        dut_ac : ac port map(
+            clk     => s_clk,
+            reset_n => s_reset_n,
+            inp     => s_RAM_WR,
+            result  => s_activity(i)
+        );
+    end generate;
     ----------------------------------------------------------------------------
 end struct;

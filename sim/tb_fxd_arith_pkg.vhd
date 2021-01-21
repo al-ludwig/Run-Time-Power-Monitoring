@@ -1,3 +1,7 @@
+--==============================================================================
+-- project: Run-Time-Power-Monitoring
+--==============================================================================
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -13,13 +17,15 @@ end tb_fxd_arith_pkg;
 
 architecture sim of tb_fxd_arith_pkg is
 
-	--==========================================================================
+	--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	-- change sim constants
+
 	constant max_error   : real     := 1.0e-12;
 	constant steps       : natural  := 1e4;
 	constant coeff_fxd_c : fxd_type := (32, 96, 128);
 	constant res_fxd_c   : fxd_type := (32, 96, 128);
-	--==========================================================================
+
+	--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 	subtype coeff_fxd_type is unsigned (coeff_fxd_c.m - 1 downto 0);
 	subtype res_fxd_type is unsigned (res_fxd_c.m - 1 downto 0);
@@ -38,12 +44,9 @@ architecture sim of tb_fxd_arith_pkg is
 begin
 
 	p : process
-
 		variable seed1, seed2  : integer := 999;
 		variable rand, rand_sm : real;
-
 	begin
-
 		for i in 0 to steps loop
 			-- generate random values
 			uniform(seed1, seed2, rand);
@@ -77,4 +80,5 @@ begin
 		end loop;
 		report "Simulation: Finished successfully" severity failure;
 	end process;
+
 end sim;
