@@ -45,6 +45,6 @@ do_top_files:
 do_top: clean sel_lib do_base_files do_arith_files do_ac_files do_calc_files do_top_files
 
 run_top: do_top
-	vsim -do data/top.do -do "run 10 us" tb_top
+	vsim -do data/top.do -do "run 3000 ms" tb_top
 ################################################################################
 do: clean sel_lib do_base_files do_arith_files do_ac_files do_calc_files do_top_files
