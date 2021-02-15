@@ -1,0 +1,83 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Mon Jan 25 12:50:14 2021
+# Process ID: 552
+# Current directory: C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6584 C:\Users\Alexander\Documents\Master_Embedded\SoC_Lab\Run-Time-Power-Monitoring\vivado\PowerMonitoring\PowerMonitoring.xpr
+# Log file: C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/vivado.log
+# Journal file: C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.srcs/sources_1/bd/design_1/design_1.bd}
+upgrade_ip [get_ips]
+update_ip_catalog -rebuild
+update_ip_catalog -disable_ip c:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/ip_repo/PowerMonitoringIP_1.0/component.xml -repo_path c:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/ip_repo/PowerMonitoringIP_1.0
+update_ip_catalog -enable_ip c:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/ip_repo/PowerMonitoringIP_1.0/component.xml -repo_path c:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/ip_repo/PowerMonitoringIP_1.0
+ipx::edit_ip_in_project -upgrade true -name PowerMonitoringIP_v1_0_update -directory C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.tmp/PowerMonitoringIP_v1_0_update c:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/ip_repo/PowerMonitoringIP_1.0/component.xml
+update_compile_order -fileset sources_1
+set_property core_revision 3 [ipx::current_core]
+ipx::update_source_project_archive -component [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+ipx::move_temp_component_back -component [ipx::current_core]
+close_project -delete
+update_ip_catalog -rebuild -repo_path c:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/ip_repo/PowerMonitoringIP_1.0
+report_ip_status -name ip_status 
+upgrade_ip -vlnv xilinx.com:user:PowerMonitoringIP:1.0 [get_ips  design_1_PowerMonitoringIP_0_1] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips design_1_PowerMonitoringIP_0_1] -no_script -sync -force -quiet
+generate_target all [get_files  C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.srcs/sources_1/bd/design_1/design_1.bd]
+catch { config_ip_cache -export [get_ips -all design_1_processing_system7_0_0] }
+catch { config_ip_cache -export [get_ips -all design_1_rst_ps7_0_100M_0] }
+catch { config_ip_cache -export [get_ips -all design_1_PowerMonitoringIP_0_1] }
+catch { config_ip_cache -export [get_ips -all design_1_auto_pc_0] }
+export_ip_user_files -of_objects [get_files C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs -jobs 2 {design_1_processing_system7_0_0_synth_1 design_1_rst_ps7_0_100M_0_synth_1 design_1_PowerMonitoringIP_0_1_synth_1 design_1_auto_pc_0_synth_1}
+export_simulation -of_objects [get_files C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.srcs/sources_1/bd/design_1/design_1.bd] -directory C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.ip_user_files -ipstatic_source_dir C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.cache/compile_simlib/modelsim} {questa=C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.cache/compile_simlib/questa} {riviera=C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.cache/compile_simlib/riviera} {activehdl=C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+file copy -force C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.runs/impl_1/design_1_wrapper.sysdef C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.sdk/design_1_wrapper.hdf
+
+launch_sdk -workspace C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.sdk -hwspec C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.sdk/design_1_wrapper.hdf
+ipx::edit_ip_in_project -upgrade true -name PowerMonitoringIP_v1_0_project -directory C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.tmp/PowerMonitoringIP_v1_0_project c:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/ip_repo/PowerMonitoringIP_1.0/component.xml
+update_compile_order -fileset sources_1
+set_property core_revision 4 [ipx::current_core]
+ipx::update_source_project_archive -component [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+ipx::move_temp_component_back -component [ipx::current_core]
+close_project -delete
+update_ip_catalog -rebuild -repo_path c:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/ip_repo/PowerMonitoringIP_1.0
+upgrade_ip -vlnv xilinx.com:user:PowerMonitoringIP:1.0 [get_ips  design_1_PowerMonitoringIP_0_1] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips design_1_PowerMonitoringIP_0_1] -no_script -sync -force -quiet
+generate_target all [get_files  C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.srcs/sources_1/bd/design_1/design_1.bd]
+catch { config_ip_cache -export [get_ips -all design_1_PowerMonitoringIP_0_1] }
+catch { config_ip_cache -export [get_ips -all design_1_auto_pc_0] }
+export_ip_user_files -of_objects [get_files C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs -jobs 2 design_1_PowerMonitoringIP_0_1_synth_1
+export_simulation -of_objects [get_files C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.srcs/sources_1/bd/design_1/design_1.bd] -directory C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.ip_user_files -ipstatic_source_dir C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.cache/compile_simlib/modelsim} {questa=C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.cache/compile_simlib/questa} {riviera=C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.cache/compile_simlib/riviera} {activehdl=C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+update_ip_catalog -rebuild -scan_changes
+report_ip_status -name ip_status
+upgrade_ip -vlnv xilinx.com:user:PowerMonitoringIP:1.0 [get_ips  design_1_PowerMonitoringIP_0_1] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips design_1_PowerMonitoringIP_0_1] -no_script -sync -force -quiet
+generate_target all [get_files  C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.srcs/sources_1/bd/design_1/design_1.bd]
+catch { config_ip_cache -export [get_ips -all design_1_PowerMonitoringIP_0_1] }
+catch { config_ip_cache -export [get_ips -all design_1_auto_pc_0] }
+export_ip_user_files -of_objects [get_files C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs -jobs 2 design_1_PowerMonitoringIP_0_1_synth_1
+export_simulation -of_objects [get_files C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.srcs/sources_1/bd/design_1/design_1.bd] -directory C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.ip_user_files -ipstatic_source_dir C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.cache/compile_simlib/modelsim} {questa=C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.cache/compile_simlib/questa} {riviera=C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.cache/compile_simlib/riviera} {activehdl=C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+file copy -force C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.runs/impl_1/design_1_wrapper.sysdef C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.sdk/design_1_wrapper.hdf
+
+launch_sdk -workspace C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.sdk -hwspec C:/Users/Alexander/Documents/Master_Embedded/SoC_Lab/Run-Time-Power-Monitoring/vivado/PowerMonitoring/PowerMonitoring.sdk/design_1_wrapper.hdf
