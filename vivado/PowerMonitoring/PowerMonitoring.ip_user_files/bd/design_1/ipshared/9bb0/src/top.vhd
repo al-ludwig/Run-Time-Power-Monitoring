@@ -86,12 +86,12 @@ begin
         dut_ac : ac port map(
             clk     => s_clk,
             reset_n => s_reset_n,
-            inp     => s_clk_div2,
+            inp     => s_RAM_DATA_IN(i),
             result  => s_activity(i)
         );
     end generate;
     ----------------------------------------------------------------------------
-    --divide clock by 2 and connect it to the activity counter input
+    --divide clock (50MHz) by 100 (=0.5MHz) and connect it to the activity counter input
     p_clkdiv2: process(clk)
         variable counter_var : natural := 0;
     begin

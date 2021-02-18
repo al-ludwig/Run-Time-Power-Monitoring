@@ -12,8 +12,8 @@ preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 -540 -160 -200 -160 240 50 
 preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 3 -550 -380 N -380 220
 preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 3 N -240 260 -200 800
 preplace netloc axi_interconnect_0_M00_AXI 1 3 1 790 -90n
-preplace netloc processing_system7_0_FIXED_IO 1 2 3 250 -190 NJ -190 N
 preplace netloc processing_system7_0_M_AXI_GP0 1 2 1 270 -130n
+preplace netloc processing_system7_0_FIXED_IO 1 2 3 250 -190 NJ -190 N
 preplace netloc processing_system7_0_DDR 1 2 3 230 -210 NJ -210 N
 levelinfo -pg 1 -570 -370 10 640 910 1060
 pagesize -pg 1 -db -bbox -sgen -570 -610 1180 210
