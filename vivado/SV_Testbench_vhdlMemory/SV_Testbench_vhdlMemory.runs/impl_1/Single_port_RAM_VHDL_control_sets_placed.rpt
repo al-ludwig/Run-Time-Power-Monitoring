@@ -1,0 +1,335 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Thu Jan 14 10:26:54 2021
+| Host         : DESKTOP-LG337B8 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file Single_port_RAM_VHDL_control_sets_placed.rpt
+| Design       : Single_port_RAM_VHDL
+| Device       : xc7z020
+-------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   257 |
+|    Minimum number of control sets                        |   257 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |     0 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   257 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     0 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |   257 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               0 |            0 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |              16 |           16 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |            4096 |         1884 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------+--------------------------+------------------+------------------+----------------+
+|     Clock Signal     |       Enable Signal      | Set/Reset Signal | Slice Load Count | Bel Load Count |
++----------------------+--------------------------+------------------+------------------+----------------+
+|  RAM_CLOCK_IBUF_BUFG | RAM[106]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[128]                 | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[127]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[109]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[129]                 | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[12]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[130]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[117]                 | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[122]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[115]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[132]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[133]                 | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[135]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[101]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[126]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[134]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[136]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[137]                 | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[104]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[131]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[111]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[0][15]_i_2_n_0       | p_0_in           |               11 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[100]                 | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[102]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[10]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[112]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[113]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[108]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[116]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[103]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[114]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[110]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[107]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[118]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[119]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[121]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[123]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[124]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[105]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[11]                  | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[120]                 | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[125]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[155]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[165]                 | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[147]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[151]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[170]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[172]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[139]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[15]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[171]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[169]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[153]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[167]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[13]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[176]                 | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[158]                 | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[177]                 | p_0_in           |               13 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[146]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[162]                 | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[179]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[17]                  | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[157]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[173]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[160]                 | p_0_in           |               11 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[145]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[175]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[150]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[174]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[148]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[152]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[159]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[166]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[164]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[16]                  | p_0_in           |               12 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[156]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[138]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[14]                  | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[149]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[163]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[168]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[143]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[178]                 | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[140]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[141]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[154]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[142]                 | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[161]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[144]                 | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[198]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[205]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[208]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[196]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[192]                 | p_0_in           |               11 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[210]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[212]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[214]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[209]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[206]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[213]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[1]                   | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[20]                  | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[201]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[211]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[216]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[217]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[202]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[215]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[218]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[219]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[221]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[222]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[223]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[224]                 | p_0_in           |               15 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[21]                  | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[207]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[184]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[180]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[194]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[203]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[220]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[182]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[190]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[183]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[195]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[199]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[19]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[193]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[188]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[200]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[204]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[191]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[185]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[186]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[181]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[187]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[189]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[18]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[197]                 | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[38]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[228]                 | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[39]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[227]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[238]                 | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[254]                 | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[233]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[3]                   | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[32]                  | p_0_in           |               11 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[40]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[231]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[236]                 | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[242]                 | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[247]                 | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[249]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[25]                  | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[24]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[226]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[240]                 | p_0_in           |               13 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[26]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[232]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[31]                  | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[33]                  | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[234]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[34]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[36]                  | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[22]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[239]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[237]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[245]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[225]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[250]                 | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[241]                 | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[235]                 | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[229]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[251]                 | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[243]                 | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[244]                 | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[252]                 | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[248]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[27]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[28]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[29]                  | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[30]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[230]                 | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[255]                 | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[246]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[35]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[2]                   | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[23]                  | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[253]                 | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[37]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[69]                  | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[71]                  | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[73]                  | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[74]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[76]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[77]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[41]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[56]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[50]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[57]                  | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[6]                   | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[47]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[51]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[61]                  | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[45]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[52]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[58]                  | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[62]                  | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[63]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[64]                  | p_0_in           |               11 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[43]                  | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[67]                  | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[70]                  | p_0_in           |               11 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[72]                  | p_0_in           |               11 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[59]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[75]                  | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[5]                   | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[46]                  | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[4]                   | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[48]                  | p_0_in           |               14 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[54]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[44]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[42]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[53]                  | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[60]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[49]                  | p_0_in           |                5 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[65]                  | p_0_in           |               13 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[66]                  | p_0_in           |               12 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[55]                  | p_0_in           |                4 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[68]                  | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[83]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[97]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[82]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[88]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[94]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[90]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[9]                   | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[7]                   | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[87]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[91]                  | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[89]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[8]                   | p_0_in           |               11 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[92]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[93]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[95]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[96]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[86]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[98]                  | p_0_in           |                7 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[80]                  | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[79]                  | p_0_in           |                9 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[78]                  | p_0_in           |               11 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[81]                  | p_0_in           |               10 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[84]                  | p_0_in           |                8 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[85]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM[99]                  | p_0_in           |                6 |             16 |
+|  RAM_CLOCK_IBUF_BUFG | RAM_DATA_OUT[15]_i_1_n_0 |                  |               16 |             16 |
++----------------------+--------------------------+------------------+------------------+----------------+
+
+
