@@ -40,10 +40,7 @@ architecture struct of top is
     signal s_activity : activity_array_type;
     signal s_p_dyn    : res_fxd_type;
 
-    signal s_activity_tmp : activity_type;-- := "01010101010101010101";
-    signal s_activity_stat : activity_array_type; 
-    
-    signal s_clk_div2 : std_logic := '0';
+    signal s_ac_inp: std_logic_vector(activity_count-1 downto 0);
 
 begin
 
@@ -56,11 +53,9 @@ begin
     RAM_DATA_OUT  <= s_RAM_DATA_OUT;
     p_dyn         <= s_p_dyn;
 
-
-
-    s_activity_tmp <= "0000" & unsigned(RAM_DATA_IN);
-    s_activity_stat <= (s_activity_tmp,s_activity_tmp,s_activity_tmp,s_activity_tmp,s_activity_tmp);
-    
+    s_ac_inp(0) <= s_RAM_WR;
+    s_ac_inp(4 downto 1) <= s_RAM_DATA_IN(3 downto 0);
+    s_ac_inp(8 downto 5) <= s_RAM_DATA_OUT(3 downto 0);
     ----------------------------------------------------------------------------
     dut_ram : sp_ram port map(
         RAM_ADDR     => s_RAM_ADDR,
@@ -86,23 +81,9 @@ begin
         dut_ac : ac port map(
             clk     => s_clk,
             reset_n => s_reset_n,
-            inp     => s_RAM_DATA_IN(i),
+            inp     => s_ac_inp(i),
             result  => s_activity(i)
         );
     end generate;
-    ----------------------------------------------------------------------------
-    --divide clock (50MHz) by 100 (=0.5MHz) and connect it to the activity counter input
-    p_clkdiv2: process(clk)
-        variable counter_var : natural := 0;
-    begin
-        if(rising_edge(clk)) then
-            if(counter_var = 99) then
-                s_clk_div2 <= not s_clk_div2;
-                counter_var := 0;
-            else
-                counter_var := counter_var + 1;
-            end if;
-        end if;
-    end process;
     ----------------------------------------------------------------------------
 end struct;

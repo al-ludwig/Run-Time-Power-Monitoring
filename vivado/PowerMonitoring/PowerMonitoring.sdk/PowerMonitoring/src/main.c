@@ -13,6 +13,9 @@
 #include "xil_printf.h"
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdbool.h>
 
 void init(){
 	//reset (active low, bit 1) and enable top (bit 0) -> 0x0001
@@ -47,14 +50,43 @@ void PrintRAMData(u32 RAM_DATA){
 	xil_printf("RAM_DATA_OUT = 0x%04x \n\r", RAM_DATA);
 }
 
-void PrintPower(u32 PDyn){
-	xil_printf("P_Dyn = 0x%08x \n\r", PDyn);
+bool bitset(int index, uint32_t num){
+    unsigned long ref = 1;
+    if (ref << index & num){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
+//to use the "pow"-function, go to
+//Project->Properties: C/C++-Build->Settings->ARM v7 gcc linker->Libraries: add "m"
+double conv_fxd_double(uint32_t fxd_value, uint32_t m, uint32_t ip, uint32_t fp){
+    uint32_t i;
+    long double result = 0;
+    if (m != fp + ip){
+        return -1;
+    }
+    for (i = 0; i < fp; i++){
+        if (bitset(i, fxd_value)){
+            result += 1 / pow(2.0, fp - i);
+        }
+    }
+    for (i = fp; i < m; i++){
+        if (bitset(i, fxd_value)){
+            result += pow(2, i - fp);
+        }
+    }
+    return result;
+}
+
+void PrintPower(u32 PDyn){
+	//xil_printf("P_Dyn = 0x%08x \n\r", PDyn);
+	printf("P_Dyn = %.14f W\n\r", conv_fxd_double(PDyn, 32, 4, 28));
+}
 
 int main(){
-
-	u16 RAM_DATA_OUT;
 	u32 PDyn;
 
 	srand(234987);   // Initialization, should only be called once.
@@ -72,25 +104,13 @@ int main(){
 
 	u16 random;
 
-	while(i<100){
-		//currently the 5 lowest bits of incoming RAMData are monitored
-		//address is of no concern
-
+	while(i<1000){
 		random = (u16)rand();      // Returns a pseudo-random integer between 0 and RAND_MAX.
 		WriteRAMDATA(random, 0x00AF);
-		/*switch(i % 2){
-			case 0: WriteRAMDATA(random, 0x00AF); break;
-			case 1: WriteRAMDATA(0x001F, 0x00AF); break;
-			case 2: WriteRAMDATA(0x0008, 0x00AF); break;
-			case 3: WriteRAMDATA(0x0017, 0x00AF); break;
-			case 4: WriteRAMDATA(0x000A, 0x00AF); break;
-			case 5: WriteRAMDATA(0x0015, 0x00AF); break;
-			default: break;
-		}*/
-		usleep(10000); // = 10ms
-		if(i == 99){
+		usleep(1000); // = 10ms
+		if(i == 999){
 			i = 0;
-			PDyn = ReadPower();
+			PDyn = ReadPower(); //read every second
 			PrintPower(PDyn);
 		}
 		else{

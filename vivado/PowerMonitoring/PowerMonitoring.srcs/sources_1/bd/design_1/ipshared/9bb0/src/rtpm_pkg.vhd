@@ -15,7 +15,7 @@ package rtpm_pkg is
 	--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	--USER CHANGABLE CONSTANTS
 
-	constant activity_count        : natural := 5;
+	constant activity_count        : natural := 9;
 	constant activity_data_width_c : natural := 20;
 
 	constant coeff_fxd_c : fxd_type := (32, 96, 128);

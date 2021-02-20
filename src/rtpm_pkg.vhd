@@ -15,13 +15,13 @@ package rtpm_pkg is
 	--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	--USER CHANGABLE CONSTANTS
 
-	constant activity_count        : natural := 5;
+	constant activity_count        : natural := 9;
 	constant activity_data_width_c : natural := 20;
 
 	constant coeff_fxd_c : fxd_type := (32, 96, 128);
 	constant res_fxd_c   : fxd_type := (4, 28, 32);
 
-	constant reset_interval_c : natural    := 1e7; -- 0.5s
+	constant reset_interval_c : natural    := 1e7; -- 10ms
 	constant clk_freq_c       : natural := 50e6;
 
 	--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -43,16 +43,16 @@ package rtpm_pkg is
 		-- 0.00000645664374,
 		-- 0.00023676654456,
 		-- 0.00012432524569
-		-- 0.000001,
-		-- 0.000001,
-		-- 0.000001,
-		-- 0.000001,
-		-- 0.000001
-		0.0000001,
-		0.0000001,
-		0.0000001,
-		0.0000001,
-		0.0000001
+		0.000001,
+		0.000001,
+		0.000001,
+		0.000001,
+		0.000001
+		-- 0.01,
+		-- 0.01,
+		-- 0.01,
+		-- 0.01,
+		-- 0.01
 		);
 
 	--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
