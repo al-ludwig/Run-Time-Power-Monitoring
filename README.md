@@ -43,6 +43,24 @@ In order to be able to calculate the power values as precisely as possible, we i
 
 alpha stands for the switching activity (determined by the activity counters), C for the capacitance, Vdd for the supply voltage and f for the operating frequency.
 
+**VHDL Top-design:**
+
+The top-design connects all sub-modules (RAM, activity-counter and calculation). Changes to the signals-to-be-monitored can be made here (connect the signals you want to monitor with "s_ac_inp").
+
+**AXI and creating custom IP-Core:**
+
+We use the advanced extensible Interface (AXI) protocol for the communication between the Programmable System (PS) and Programmable Logic (PL) on the Zynq. <br>
+Vivado offers a guide, which helps with the creation of a IP-Core (for details see [here](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_2/ug1118-vivado-creating-packaging-custom-ip.pdf)). Our IP-Core is located at "vivado/ip_repo/PowerMonitoringIP_1.0/". Basically, we added the instantiation of our top-design in "PowerMonitoringIP_v1_0_S00_AXI.vhd".<br>
+The following picture presents the block design:
+
+![Block Design](https://github.com/al-ludwig/Run-Time-Power-Monitoring/blob/main/doc/block_design.PNG)
+
+**Embedded Application:**
+
+Basically we just modified "main.c" and left everything else unchanged. <br>
+First, we initialize the RAM by resetting and enabling it. Afterwards, the actual monitoring starts. Every 10ms a random value is written to the RAM and every second the calculated power value is read out. For that, we created functions like "WriteRAMData" or "PrintPower".<br>
+
+
 ## How to use:
 
 **Signal Selection:**
@@ -66,6 +84,15 @@ alpha stands for the switching activity (determined by the activity counters), C
 
 **Xilinx SDK:**
 1) Actually you don't have to change anything in "main.c" if you want to read out the values via UART.
+
+## How to run & preparations
+
+1) Open the vivado project ("PowerMonitoring.xpr") and make sure that the bitstream is up-to-date.
+2) Launch the SDK (workspace has to be "local to project")
+3) Connect the Zedboard: UART and PROG via USB to the PC (and of course Power)
+4) Program the FPGA: Go to Xilinx -> Program FPGA: Select the bitstream-file and press "Program"
+5) Set up the serial communication via a terminal (e.g. Tera Term) and set baud rate to 115200
+6) Go to the project navigator, right click on "PowerMonitoring" -> Run As -> Launch on Hardware (GDB)
 
 ## Team organization
 
