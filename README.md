@@ -19,6 +19,30 @@ is enveloped by the power monitoring unit, which includes the activity counters 
 
 ![System overview](https://github.com/al-ludwig/Run-Time-Power-Monitoring/blob/main/doc/overview.PNG)
 
+## Description
+
+**Testbench:**
+
+The results in the vivado power report heavily depend on the applied testbench. So it is very important to create a testbench, which simulates the real behaviour as precisely as possible. Because testbenches in vhdl are not modular, scalable or flexible, we chose a SystemVerilog-Testbench.<br> We took the Testbench from [here](https://www.chipverify.com/systemverilog/systemverilog-simple-testbench) and modified it for our needs. The vivado project for our testbench is located in "vivado/SV_Testbench-vhdlMemory". The source files of our testbench can be found at "vivado\SV_Testbench_vhdlMemory\SV_Testbench_vhdlMemory.srcs\sim_1\imports\SV_Testbench_Memory.srcs\sources_1\new\".
+
+![Testbench architecture](https://github.com/al-ludwig/Run-Time-Power-Monitoring/blob/main/doc/Testbench_overview.PNG)
+
+**Our module-under-monitoring:**
+
+We chose a single port RAM as our module-under-monitoring. This allows us to generate a lot of traffic (by writing to and reading out of the RAM).
+
+**Activity counters:**
+
+The activity counters are used to detect signal toggles. At every rising edge of the system clock, they xor the input signal with the input signal from the previous clock cycle. Because the counter values are read every 10ms, the counter has to get resetted every 10ms. 
+
+**Calculation:**
+
+In order to be able to calculate the power values as precisely as possible, we implemented a fixed point library ("fxd_arith_pkg.vhd"). The calculation is based on the following formula:
+
+![Testbench architecture](https://github.com/al-ludwig/Run-Time-Power-Monitoring/blob/main/doc/power_formula.PNG)
+
+alpha stands for the switching activity (determined by the activity counters), C for the capacitance, Vdd for the supply voltage and f for the operating frequency.
+
 ## How to use:
 
 **Signal Selection:**
