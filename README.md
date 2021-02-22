@@ -22,14 +22,14 @@ is enveloped by the power monitoring unit, which includes the activity counters 
 ## How to use:
 
 **Signal Selection:**
-1) You need to have the rtl-design of the modul-to-be-monitored. A description in VHDL woudl be ideal, because otherwise we can not guarantee that vivado can generate a bitstream out of 2 different description languages.
-2) You have to write a testbench for the vivado power report, which should be as close as possible to the real application (for details see testbench)
+1) You need to have the rtl-design of the modul-to-be-monitored. A description in VHDL would be ideal, because otherwise we can not guarantee that vivado can generate a bitstream out of 2 different description languages.
+2) You have to write a testbench for the vivado power report, which should be as close as possible to the real world application (for details see testbench)
 3) Synthesize and create the implementation of the modul-to-be-monitored in vivado.
 4) Go to simulation settings and add the name of the saif-file (simply by typing in the name of the file)
 5) Run the functional simulation on the implemented design. In this step, the saif-file is actually created.
 6) Create the power report - dont forget to include the generated saif-file.
-7) In the power report - go to I/O and sort them by hightest to lowest switching rate.
-8) Select the I/Os with the highest activity. In our design (RAM), we selected the three signal with the hightest activity. Please note: signals with a switching rate higher than FCLK/2 cannot be monitored by our activity-counters. To take that into account, the multiplier in "rtpm_pkg.vhd" can be adjusted. If the I/O has several bits, our way was to select the 4 bits with the highest rate.
+7) In the power report - go to I/O and sort them by highest to lowest switching rate.
+8) Select the I/Os with the highest activity. In our design (RAM), we selected the three signal with the highest activity. Please note: signals with a switching rate higher than FCLK/2 cannot be monitored by our activity-counters. To take that into account, the multiplier in "rtpm_pkg.vhd" can be adjusted. If the I/O has several bits, our way was to select the 4 bits with the highest rate, wich is of course highly dependent on the data wich is read from/written to the RAM.
 
 **Adjustment of the monitoring-design:**
 1) Set the "activity_count" constant in "rtpm_pkg.vhd". (e.g.: if you monitor 9 signals, set it to 9)
